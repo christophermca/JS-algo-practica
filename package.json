@@ -1,0 +1,23 @@
+{
+  "name": "jsalgo",
+  "version": "1.0.0",
+  "description": "js algotrithems",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  },
+  "scripts": {
+    "test": "mocha ./**/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophermca/JS-algo-practica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christophermca/JS-algo-practica/issues"
+  },
+  "homepage": "https://github.com/christophermca/JS-algo-practica#readme"
+}
