@@ -19,7 +19,7 @@ function _handleEvenLenghStrings(stg) {
   return [
     first.slice(0, stg.length/2),
     last.slice(stg.length/2, stg.length),
-    {palindrome: isPalindrome}
+    { palindrome: isPalindrome }
   ];
 }
 
@@ -62,11 +62,9 @@ async function isPalindrome(...strings) {
  */
 
 if(require.main === module) {
-  try {
     // normalize arguments from commandline to match API specs
-    isPalindrome(process.argv.slice(2)[0]).then(result => console.log(result));
-  } catch(err) {
-    console.log(err);
-  }
+    isPalindrome(process.argv.slice(2)[0])
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
 }
 module.exports = isPalindrome;
