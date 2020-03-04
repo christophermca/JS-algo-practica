@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "js algotrithems",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^7.1.0"
   },
   "scripts": {
     "test": "mocha ./algos/**/test/",
-    "start": "node run ./algos/index.js"
-
+    "start": "node ./algos/index.js"
   },
   "repository": {
     "type": "git",

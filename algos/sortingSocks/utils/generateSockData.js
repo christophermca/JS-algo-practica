@@ -1,5 +1,15 @@
-const delta1 = function (amount = 0, colors = 1) {
+function delta(amount = 0, colors = 1) {
   let data = [];
+  const log = {};
+
+  function _updateLog(socks) {
+    if(typeof log[socks] !== 'number') {
+      log[socks] = 0;
+    }
+
+    ++log[socks];
+  }
+
   while(data.length < amount) {
     const rand = Math.round((Math.random() * colors));
     let sock;
@@ -15,10 +25,11 @@ const delta1 = function (amount = 0, colors = 1) {
     }
 
     if(sock) {
+      _updateLog(sock);
       data.push(sock);
     }
   }
-  return data;
+  return {log, data};
 }
 
-module.exports = delta1
+module.exports = delta;
