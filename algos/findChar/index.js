@@ -13,7 +13,6 @@ function linearSearch(string, key) {
   catch(err ) {
       return i = -1
     } finally {
-      console.dir(JSON.stringify(arr));
       console.log(`found at index: ${i}`);
       console.log(`Searching for key: ${arr[i]}`);
     }
