@@ -64,7 +64,9 @@ async function isPalindrome(...strings) {
 if(require.main === module) {
     // normalize arguments from commandline to match API specs
     isPalindrome(process.argv.slice(2)[0])
-      .then(result => console.log(result))
+      .then(result => {
+        console.log(result)
+      })
       .catch(err => console.log(err))
 }
 module.exports = isPalindrome;
