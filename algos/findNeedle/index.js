@@ -5,7 +5,6 @@ function linearSearch(string, key) {
     for(i = 0; i < arr.length; i++) {
       console.log(arr[i], key);
       if (arr[i] == key){
-        debugger
         console.log(`found at index: ${i}`);
         console.log(`max length ${arr.length}`);
         return arr[i];
@@ -27,7 +26,7 @@ function binarySearch(string, key) {
 }
 
 function findChar(string, key) {
-      Promise.resolve(linearSearch(string, key));
+  Promise.resolve(linearSearch(string, key));
 }
 
 module.exports = {default: findChar, binarySearch, linearSearch};

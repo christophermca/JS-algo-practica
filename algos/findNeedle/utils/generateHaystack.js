@@ -3,6 +3,7 @@ const rand1 = getRandomNumber();
 const rand2 = getRandomNumber();
 const randLength = pow(rand1, rand2);
 const randomBit = () => round(random());
+
 function getRandomNumber() {
   return round(random() * 10)
 }
@@ -16,6 +17,7 @@ function _buildSection(length) {
     return resolve(result);
   })
 }
+
 function hideNeedle(needle, haystack) {
   // pick random location in haystack to hide needle
   let lo = 0;
@@ -28,14 +30,16 @@ function hideNeedle(needle, haystack) {
   return left + needle + right;
 }
 
-function generateHaystack(needle) {
+async function generateHaystack(needle=null) {
   const quarter = randLength / 4;
-  return Promise.all([_buildSection(quarter*1), _buildSection(quarter*2), _buildSection(quarter*3), _buildSection(quarter*5)]).then(results => {
-    const haystack = results.join('');
-    if(needle) {
-      return hideNeedle(needle, haystack);
-    }
-  })
+  const haystack = await Promise.all([_buildSection(quarter*1), _buildSection(quarter*2), _buildSection(quarter*3), _buildSection(quarter*5)])
+    .then(results => results.join(''))
+
+  if(needle){
+    return hideNeedle(needle, haystack)
+  } else {
+    return haystack
+  }
 }
 
 
@@ -47,5 +51,5 @@ if(require.main === module) {
         })
       .catch(err => console.log(err))
 }
-module.exports = generateHaystack, hideNeedle;
+module.exports = generateHaystack;
 
