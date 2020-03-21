@@ -8,6 +8,6 @@ const {data} = gsd(24, 3);
 const socks = sortingSocks({ data });
 
 const needle = 2;
-const foundInHaystack = findNeedle(needle, genHaystack(needle));
+const foundInHaystack =  findNeedle(needle, genHaystack(needle));
 
 Promise.all([palindrome, socks, foundInHaystack]).then(result => console.log(result));

@@ -21,7 +21,7 @@ function _buildSection(length) {
 function hideNeedle(needle, haystack) {
   // pick random location in haystack to hide needle
   let lo = 0;
-  let hi = haystack.length -1;
+  let hi = haystack.length - 1;
   let needlePos = Math.floor(Math.random() * (hi - lo) + lo);
 
   //hide needle

@@ -2,16 +2,13 @@ function linearSearch(string, key) {
   const arr = string.split('');
   let i;
   try {
-    for(i = 0; i < arr.length; i++) {
-      console.log(arr[i], key);
+    for (i = 0; i < arr.length; i++) {
       if (arr[i] == key){
-        console.log(`found at index: ${i}`);
-        console.log(`max length ${arr.length}`);
-        return arr[i];
+        return `found at ${i}`
       }
     }
   }
-  catch(err ) {
+  catch(err) {
       return i = -1
     } finally {
       console.log(`Searching for key: ${arr[i]}`);
@@ -25,8 +22,9 @@ function binarySearch(string, key) {
 
 }
 
-function findChar(string, key) {
-  Promise.resolve(linearSearch(string, key));
+async function findChar(key, haystack) {
+  const string = await haystack;
+  return linearSearch(string, key)
 }
 
 module.exports = {default: findChar, binarySearch, linearSearch};
