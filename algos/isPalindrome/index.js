@@ -69,4 +69,5 @@ if(require.main === module) {
       })
       .catch(err => console.log(err))
 }
+
 module.exports = isPalindrome;

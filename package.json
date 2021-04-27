@@ -1,7 +1,7 @@
 {
-  "name": "jsalgo",
+  "name": "jsAlgo",
   "version": "1.0.0",
-  "description": "js algotrithems",
+  "description": "js algorithms",
   "main": "index.js",
   "devDependencies": {
     "chai": "^4.2.0",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/christophermca/JS-algo-practica/issues"
   },
-  "homepage": "https://github.com/christophermca/JS-algo-practica#readme"
+  "homepage": "https://github.com/christophermca/JS-algo-practica#readme",
+  "dependencies": {
+    "chai-as-promised": "^7.1.1"
+  }
 }

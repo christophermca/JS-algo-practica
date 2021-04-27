@@ -31,8 +31,13 @@ function hideNeedle(needle, haystack) {
 }
 
 async function generateHaystack(needle=null) {
-  const quarter = randLength / 4;
-  const haystack = await Promise.all([_buildSection(quarter*1), _buildSection(quarter*2), _buildSection(quarter*3), _buildSection(quarter*5)])
+  const rl = randLength / 4;
+  const haystack = await Promise.all([
+    _buildSection(rl*1),
+    _buildSection(rl*2),
+    _buildSection(rl*3),
+    _buildSection(rl*4)
+  ])
     .then(results => results.join(''))
 
   if(needle){

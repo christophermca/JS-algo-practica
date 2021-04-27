@@ -1,7 +1,5 @@
 async function sortingSocks(socks) {
-  if(!socks){
-    return Promise.resolve("you don't have socks")
-  }
+  if(!socks){ return Promise.resolve("you don't have socks") }
 
   const result = await socks.reduce((acc, sock) => {
     if(typeof acc[sock] !== 'number') {

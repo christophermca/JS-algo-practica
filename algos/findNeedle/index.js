@@ -20,6 +20,15 @@ function binarySearch(string, key) {
   let high = string.length - 1 ;
   let mid = (low + high)/ 2;
 
+  function sortString(a, b) {
+    if(a > b) return 1
+    if(a < b) return -1
+    if(a === b) return 0
+  }
+
+  console.log('---string', string);
+  //string.sort(sortString);
+
 }
 
 async function findChar(key, haystack) {
