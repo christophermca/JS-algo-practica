@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/christophermca/JS-algo-practica#readme",
   "dependencies": {
-    "chai-as-promised": "^7.1.1"
+    "chai-as-promised": "^7.1.1",
+    "newrelic": "^11.10.2"
   }
 }
