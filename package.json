@@ -2,14 +2,14 @@
   "name": "jsAlgo",
   "version": "1.0.0",
   "description": "js algorithms",
-  "main": "index.js",
+  "main": "./algos/index.js",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.0"
   },
   "scripts": {
     "test": "mocha ./algos/**/test/",
-    "start": "node ./algos/index.js"
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/christophermca/JS-algo-practica#readme",
   "dependencies": {
-    "chai-as-promised": "^7.1.1"
+    "chai-as-promised": "^7.1.1",
+    "newrelic": "^11.10.2"
   }
 }
