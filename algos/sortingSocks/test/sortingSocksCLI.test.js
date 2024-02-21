@@ -1,11 +1,17 @@
 'use strict';
-const mocha = require('mocha');
-const expect = require('chai').expect;
+require('mocha');
+
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised')
+chai.use(chaiAsPromised)
+const expect = chai.expect
+
 const sortingSocks = require('../index.js');
 
+
 describe('Sorting Socks', () => {
-  describe.only('Call from cli', () => {
-    expect(sortingSocks({ data: ['red', 'red', 'blue'] })).to.resolve(['cswr'])
+  describe('Call from cli', () => {
+    expect(sortingSocks({ data: ['red', 'red', 'blue'] })).to.eventually.equal(['green'])
 
   })
 })
