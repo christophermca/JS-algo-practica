@@ -5,7 +5,7 @@ const sortingSocks = require('../index.js');
 
 describe('Sorting Socks', () => {
   describe.only('Call from cli', () => {
-   expect(sortingSocks(['red','red','blue'])).to.resolve(['cswr'])
+    expect(sortingSocks({ data: ['red', 'red', 'blue'] })).to.resolve(['cswr'])
 
   })
 })

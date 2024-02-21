@@ -1,5 +1,5 @@
-const generateSockPile = require('./sortingSocks/utils/generateSockData');
-const genHaystack = require('./findNeedle/utils/generateHaystack');
+const generateSockPile = require('./sortingSocks/lib/generateSockData');
+const genHaystack = require('./findNeedle/lib/generateHaystack');
 const sortingSocks = require('./sortingSocks');
 const isPalindrome = require('./isPalindrome');
 
