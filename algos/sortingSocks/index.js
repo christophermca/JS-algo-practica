@@ -1,6 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-const sortingSocks = require('./lib/sortingSocks.js')
+const process = require('node:process');
+const sortingSocks = require('./bin/sortingSocks.js')
 
 async function main({ data }) {
   return sortingSocks(data)

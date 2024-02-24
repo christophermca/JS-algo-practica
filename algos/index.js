@@ -1,6 +1,6 @@
-const generateSockPile = require('./sortingSocks/lib/generateSockData');
-const genHaystack = require('./findNeedle/lib/generateHaystack');
+const generateSockPile = require('./sortingSocks/bin/generateSockData');
+const generateHaystack = require('./findNeedle/bin/generateHaystack');
 const sortingSocks = require('./sortingSocks');
 const isPalindrome = require('./isPalindrome');
 
-module.exports = { isPalindrome, sortingSocks, generateSockPile };
+module.exports = { isPalindrome, sortingSocks, generateHaystack, generateSockPile };

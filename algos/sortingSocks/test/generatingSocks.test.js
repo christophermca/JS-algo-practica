@@ -1,7 +1,7 @@
 'use strict';
-const mocha = require('mocha');
+require('mocha');
 const expect = require('chai').expect;
-const genSockPile = require('../lib/generateSockData');
+const genSockPile = require('../bin/generateSockData');
 
 describe('when requesting 12 socks with 3 colors', () => {
   const numOfSocks = 13

@@ -5,6 +5,7 @@
   "main": "./algos/index.js",
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint": "^8.57.0",
     "mocha": "^10.3.0"
   },
   "scripts": {
@@ -23,6 +24,6 @@
   "homepage": "https://github.com/christophermca/JS-algo-practica#readme",
   "dependencies": {
     "chai-as-promised": "^7.1.1",
-    "newrelic": "^11.10.2"
+    "newrelic": "^11.10.4"
   }
 }

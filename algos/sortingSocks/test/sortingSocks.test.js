@@ -1,7 +1,7 @@
 // 'use strict';
 // const mocha = require('mocha');
 // const expect = require('chai').expect;
-// const gsd = require('../lib/generateSockData');
+// const gsd = require('../bin/generateSockData');
 // const sortingSocks = require('../index.js')
 
 // function sortPile(numOfSocks, numOfColors) {

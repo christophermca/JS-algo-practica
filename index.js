@@ -1,13 +1,11 @@
-require('newrelic');
-
-const genSockData = require('./algos/sortingSocks/lib/generateSockData');
-const genHaystack = require('./algos/findNeedle/lib/generateHaystack');
+const genSockData = require('./algos/sortingSocks/bin/generateSockData');
+const genHaystack = require('./algos/findNeedle/bin/generateHaystack');
 const sortingSocks = require('./algos/sortingSocks');
 const isPalindrome = require('./algos/isPalindrome');
 const { default: findNeedle, linearSearch, binarySearch } = require('./algos/findNeedle')
 
 const palindrome = isPalindrome('racecar', 'poop', 'dog');
-const { data } = genSockData(24, 3);
+const { data } = new genSockData(24, 3);
 const socks = sortingSocks({ data });
 
 const needle = 2;
