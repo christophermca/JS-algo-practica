@@ -1,3 +1,4 @@
+const newrelic = require('newrelic');
 const { pow, round, random } = Math;
 const rand1 = getRandomNumber();
 const rand2 = getRandomNumber();
@@ -10,8 +11,8 @@ function getRandomNumber() {
 
 function _buildSection(length) {
   return new Promise((resolve) => {
-    result = "";
-    while(result.length < length) {
+    let result = "";
+    while (result.length < length) {
       result += randomBit();
     }
     return resolve(result);
@@ -30,17 +31,18 @@ function hideNeedle(needle, haystack) {
   return left + needle + right;
 }
 
-async function generateHaystack(needle=null) {
+async function generateHaystack(needle = null) {
   const rl = randLength / 4;
   const haystack = await Promise.all([
-    _buildSection(rl*1),
-    _buildSection(rl*2),
-    _buildSection(rl*3),
-    _buildSection(rl*4)
+    _buildSection(rl * 1),
+    _buildSection(rl * 2),
+    _buildSection(rl * 3),
+    _buildSection(rl * 4)
   ])
     .then(results => results.join(''))
 
-  if(needle){
+  if (needle) {
+    newrelic.recordCustomEvent('GenerateHaystack', { needle: needle, haystack: haystack })
     return hideNeedle(needle, haystack)
   } else {
     return haystack
@@ -48,13 +50,13 @@ async function generateHaystack(needle=null) {
 }
 
 
-if(require.main === module) {
-    generateHaystack()
-      .then(haystack => {
-        return haystack;
-        //console.log({end:result});
-        })
-      .catch(err => console.log(err))
+if (require.main === module) {
+  generateHaystack()
+    .then(haystack => {
+      return haystack;
+      //console.log({end:result});
+    })
+    .catch(err => console.log(err))
 }
 module.exports = generateHaystack;
 
