@@ -3,7 +3,7 @@ class GenerateSockPile {
   constructor(amount, colors) {
     this.colors = colors;
     this.amount = amount;
-    this.initialize()
+    this.initialize();
   }
 
   initialize() {

@@ -1,5 +1,3 @@
-'use strict';
-const mocha = require('mocha');
 const assert = require('assert').strict;
 const isPalindrome = require('../index.js')
 
@@ -21,9 +19,9 @@ describe('isPalindrome', () => {
       await isPalindrome('racecar', 'bad', 'poop').then(result => {
         assert.deepEqual(
           {
-            racecar: ['rac', 'e', 'car',{palindrome: true}],
-            bad: ['b', 'a', 'd', {palindrome: false}],
-            poop: ['po', 'op', {palindrome: true}],
+            racecar: ['rac', 'e', 'car', { palindrome: true }],
+            bad: ['b', 'a', 'd', { palindrome: false }],
+            poop: ['po', 'op', { palindrome: true }],
           },
           result
         );

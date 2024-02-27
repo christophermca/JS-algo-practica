@@ -1,4 +1,4 @@
-const newrelic = require('newrelic');
+// const newrelic = require('newrelic');
 const { pow, round, random } = Math;
 const rand1 = getRandomNumber();
 const rand2 = getRandomNumber();
@@ -10,13 +10,14 @@ function getRandomNumber() {
 }
 
 function _buildSection(length) {
-  return new Promise((resolve) => {
+  const x = new Promise((resolve) => {
     let result = "";
     while (result.length < length) {
       result += randomBit();
     }
     return resolve(result);
   })
+  return x
 }
 
 function hideNeedle(needle, haystack) {
@@ -31,32 +32,53 @@ function hideNeedle(needle, haystack) {
   return left + needle + right;
 }
 
-async function generateHaystack(needle = null) {
-  const rl = randLength / 4;
-  const haystack = await Promise.all([
+async function buildHaystack(rl) {
+  const q = await Promise.all([
     _buildSection(rl * 1),
     _buildSection(rl * 2),
     _buildSection(rl * 3),
     _buildSection(rl * 4)
   ])
-    .then(results => results.join(''))
 
-  if (needle) {
-    newrelic.recordCustomEvent('GenerateHaystack', { needle: needle, haystack: haystack })
-    return hideNeedle(needle, haystack)
-  } else {
-    return haystack
-  }
 }
 
+class GenerateHaystack {
+  constructor(needle) {
+    this.needle = needle || null;
+    this.rl = randLength / 4;
+  }
+
+  async initialize() {
+    try {
+      this.haystack = await buildHaystack(this.rl);
+
+    } catch (err) {
+      console.log('__wwww', err)
+    }
+
+    console.log('get out\'ta here')
+    if (this.needle) {
+      console.log('in here', this.haystack)
+      // newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: haystack })
+
+      try {
+        return hideNeedle(this.needle, this.haystack)
+      } catch (err) {
+        // newrelic.instrument("error", err)
+      }
+    } else {
+      return this.haystack
+    }
+  }
+
+}
 
 if (require.main === module) {
-  generateHaystack()
+  new GenerateHaystack()
     .then(haystack => {
       return haystack;
-      //console.log({end:result});
     })
     .catch(err => console.log(err))
 }
-module.exports = generateHaystack;
+module.exports = GenerateHaystack;
 
