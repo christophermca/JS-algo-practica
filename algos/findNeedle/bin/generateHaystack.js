@@ -1,15 +1,12 @@
 // const newrelic = require('newrelic');
 const { pow, round, random } = Math;
-const rand1 = getRandomNumber();
-const rand2 = getRandomNumber();
-const randLength = pow(rand1, rand2);
-const randomBit = () => round(random());
 
 function getRandomNumber() {
   return round(random() * 10)
 }
 
 function _buildSection(length) {
+  function randomBit() { round(random()) }
   const x = new Promise((resolve) => {
     let result = "";
     while (result.length < length) {
@@ -38,13 +35,19 @@ async function buildHaystack(rl) {
     _buildSection(rl * 2),
     _buildSection(rl * 3),
     _buildSection(rl * 4)
-  ])
+  ]).then(arr => arr.join(''))
 }
 
 class GenerateHaystack {
   constructor(needle) {
     this.needle = needle || null;
-    this.rl = randLength / 4;
+    this.rl = GenerateHaystack.generateRandomLength() / 4;
+  }
+  static generateRandomLength() {
+    const rand1 = getRandomNumber();
+    const rand2 = getRandomNumber();
+
+    return pow(rand1, rand2);
   }
 
   async initialize() {

@@ -16,7 +16,7 @@ describe.only('GenerateHaystack', () => {
         const generateHaystack = new GenerateHaystack(2)
         const haystack = await generateHaystack.initialize()
 
-        expect(haystack).to.equal(2)
+        expect(haystack).to.contain(2)
 
       });
     });
