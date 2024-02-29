@@ -1,15 +1,24 @@
 'use strict';
-require('mocha');
+const { describe, it } = require('mocha');
 const expect = require('chai').expect;
 const GenerateHaystack = require('../bin/generateHaystack.js')
 
-
 describe.only('GenerateHaystack', () => {
-  describe('renders haystack', () => {
+  describe('generateHaystack', () => {
     it('works', async () => {
-      const genHaystack = new GenerateHaystack(2)
+      const generateHaystack = new GenerateHaystack(2)
 
-      return expect(genHaystack).to.have.keys('needle', 'rl')
+      return expect(generateHaystack).to.have.keys('needle', 'rl')
+    });
+
+    describe('renders haystack', () => {
+      it('works', async () => {
+        const generateHaystack = new GenerateHaystack(2)
+        const haystack = await generateHaystack.initialize()
+
+        expect(haystack).to.equal(2)
+
+      });
     });
   });
 });

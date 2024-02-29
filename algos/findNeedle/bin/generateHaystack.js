@@ -33,13 +33,12 @@ function hideNeedle(needle, haystack) {
 }
 
 async function buildHaystack(rl) {
-  const q = await Promise.all([
+  return await Promise.all([
     _buildSection(rl * 1),
     _buildSection(rl * 2),
     _buildSection(rl * 3),
     _buildSection(rl * 4)
   ])
-
 }
 
 class GenerateHaystack {
@@ -56,10 +55,8 @@ class GenerateHaystack {
       console.log('__wwww', err)
     }
 
-    console.log('get out\'ta here')
     if (this.needle) {
-      console.log('in here', this.haystack)
-      // newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: haystack })
+      // newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
 
       try {
         return hideNeedle(this.needle, this.haystack)
