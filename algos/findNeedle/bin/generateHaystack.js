@@ -35,7 +35,10 @@ async function buildHaystack(rl) {
     _buildSection(rl * 2),
     _buildSection(rl * 3),
     _buildSection(rl * 4)
-  ]).then(arr => arr.join(''))
+  ]).then(arr => {
+    const h = arr.join('')
+    return h
+  })
 }
 
 class GenerateHaystack {
