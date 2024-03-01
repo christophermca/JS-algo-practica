@@ -1,8 +1,8 @@
 const newrelic = require('newrelic');
 class GenerateSockPile {
   constructor(amount, colors) {
-    this.colors = colors;
-    this.amount = amount;
+    this.colors = colors || 0;
+    this.amount = amount || 0;
     this.initialize();
   }
 
@@ -39,7 +39,11 @@ class GenerateSockPile {
         this.data.push(sock);
       }
     }
-    newrelic.recordCustomEvent('GenerateSockData', { amount: this.amount, log: JSON.stringify(this.log), data: JSON.stringify(this.data) })
+    newrelic.recordCustomEvent('GenerateSockData', {
+      amount: this.amount,
+      log: JSON.stringify(this.log),
+      data: JSON.stringify(this.data)
+    })
     return { log: this.log, data: this.data };
   }
 }
