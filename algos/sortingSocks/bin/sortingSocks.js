@@ -14,10 +14,10 @@ async function sortingSocks(socks) {
       collection[color] = count
     }
 
-    return collection
+    // return collection
     // if (count / 2 == 0) {
-    //   const pairsCount = count / 2;
-    //   return `you have ${pairsCount} ${(pairsCount > 1) ? 'pairs' : 'pair'} of ${color} socks`
+    const pairsCount = count / 2;
+    return collection[color] = pairsCount == 0 ? pairsCount : count;
     // }
     // return `you have ${count} ${color} ${(count > 1) ? 'socks' : 'sock'}`
   }, { total: socks.length })
