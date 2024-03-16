@@ -56,7 +56,6 @@ class GenerateHaystack {
   async initialize() {
     try {
       this.haystack = await buildHaystack(this.rl);
-
     } catch (err) {
       console.log(err)
     }
@@ -66,7 +65,7 @@ class GenerateHaystack {
         newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
         return hideNeedle(this.needle, this.haystack)
       } catch (err) {
-        newrelic.instrument("error", err)
+        newrelic.noticeError(err)
       }
     } else {
       return this.haystack
