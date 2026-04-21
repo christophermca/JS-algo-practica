@@ -10,7 +10,9 @@ function _quickFindNeedle(needle, haystack) {
 }
 
 function linearSearch(haystack, key) {
+  if (haystack == undefined) return
   performance.mark('linearSearch-start')
+
   const arr = haystack.split('')
   let i;
   let foundNeedle
@@ -47,7 +49,7 @@ function binarySearch(string, key) {
 
 }
 
-async function findChar({ data: haystack, needle: key } = args) {
+async function findChar({ data: haystack, needle: key }) {
   return linearSearch(haystack, key)
 }
 

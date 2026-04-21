@@ -45,6 +45,7 @@ class GenerateHaystack {
   constructor(needle) {
     this.needle = needle || null;
     this.rl = GenerateHaystack.generateRandomLength() / 4;
+    this.initialize();
   }
   static generateRandomLength() {
     const rand1 = getRandomNumber();
@@ -62,10 +63,11 @@ class GenerateHaystack {
 
     if (this.needle) {
       try {
-        newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
         return hideNeedle(this.needle, this.haystack)
       } catch (err) {
         newrelic.noticeError(err)
+      } finally {
+        newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
       }
     } else {
       return this.haystack
