@@ -42,10 +42,12 @@ async function buildHaystack(rl) {
 }
 
 class GenerateHaystack {
-  constructor(needle) {
+  constructor(needle, rl) {
     this.needle = needle || null;
-    this.rl = GenerateHaystack.generateRandomLength() / 4;
+    this.rl = rl || GenerateHaystack.generateRandomLength() / 4;
+    this.initialize();
   }
+
   static generateRandomLength() {
     const rand1 = getRandomNumber();
     const rand2 = getRandomNumber();
@@ -56,20 +58,19 @@ class GenerateHaystack {
   async initialize() {
     try {
       this.haystack = await buildHaystack(this.rl);
+      if (this.needle) {
+          hideNeedle(this.needle, this.haystack)
+      } else {
+        return this.haystack
+      }
     } catch (err) {
       console.log(err)
+      newrelic.logError('Error in init %s', err)
+    } finally {
+      // newrelic.recordCustomEvent('GenerateHaystack', { location: 'client', needle: this.needle, haystack: this.haystack })
     }
 
-    if (this.needle) {
-      try {
-        newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
-        return hideNeedle(this.needle, this.haystack)
-      } catch (err) {
-        newrelic.noticeError(err)
-      }
-    } else {
-      return this.haystack
-    }
+
   }
 
 }
