@@ -66,7 +66,7 @@ class GenerateHaystack {
       console.log(err)
       newrelic.logError('Error in init %s', err)
     } finally {
-      newrelic.recordCustomEvent('GenerateHaystack', { needle: this.needle, haystack: this.haystack })
+      newrelic.recordCustomEvent('GenerateHaystack', { location: 'client', needle: this.needle, haystack: this.haystack })
     }
 
 
