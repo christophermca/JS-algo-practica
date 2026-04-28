@@ -1,4 +1,4 @@
-const newrelic = require('newrelic');
+// const newrelic = require('newrelic');
 const { pow, round, random } = Math;
 
 function getRandomNumber() {
@@ -65,7 +65,7 @@ class GenerateHaystack {
       }
     } catch (err) {
       console.log(err)
-      newrelic.logError('Error in init %s', err)
+      // newrelic.logError('Error in init %s', err)
     } finally {
       // newrelic.recordCustomEvent('GenerateHaystack', { location: 'client', needle: this.needle, haystack: this.haystack })
     }
